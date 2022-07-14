@@ -8,11 +8,8 @@ const adjList = {
   }
 
   function printDepthFirst(start) {
-    let stack = []
-    const visited = new Set()
-    visited.add(start)
-    stack.push(start)
-
+    let stack = [start]
+    const visited = new Set(stack)
 
     while (stack.length) {
         let currentNode = stack.pop()

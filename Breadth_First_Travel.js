@@ -13,11 +13,8 @@ const adjList = {
 //
 
 function printBreadthFirst(start) {
-    let queue = []
-    const visited = new Set()
-    visited.add(start)
-    queue.push(start)
-
+    let queue = [start]
+    const visited = new Set(queue)
 
     while (queue.length) {
         let currentNode = queue.shift()
