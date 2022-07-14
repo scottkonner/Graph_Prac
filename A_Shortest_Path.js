@@ -7,20 +7,26 @@ const adjList = {
     6: []
 }
 
+// returns length of shortest path from start to end,
+// or false if there is no path
 function aShortestPath(start, end) {
-    const queue = [start]
-    const visited = new Set(queue)
+    const queue = [[start]]
+    const visited = new Set(queue[0])
 
     while (queue.length) {
-        let currentNode = queue.shift()
-        if (currentNode === end) {
-            return true
+        let currentPath = queue.shift()
+        let last = currentPath[currentPath.length - 1];
+        if (last === end) {
+            return currentPath;
         }
-        let neighborsArr = adjList[currentNode]
+
+        let neighborsArr = adjList[last]
+
         neighborsArr.forEach(el => {
             if (!visited.has(el)) {
-                queue.push(el)
-                visited.add(el)
+                let copyPath = currentPath.slice();
+                // queue.push(el)
+                // visited.add(el)
             }
         })
     }
